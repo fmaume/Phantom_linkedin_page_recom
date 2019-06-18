@@ -61,8 +61,9 @@ callback()	}
 function send_recomendation_console_script(args, callback){
 stemp = document.querySelectorAll("[type=circle]")
 // click an all check box
+
 for (x in stemp){
-    x.click()
+    x.click() 
 }
 
 //click on submit button
@@ -79,14 +80,17 @@ try{
 //get element from agent object
 agentobj = await buster.getAgentObject()
 console.log('got element from phantom agent')
+console.log(agentobj)
 //open tab
 const tab = await nick.newTab()	
 console.log("tab open")	
 //linkedin login
-await linkedIn.login(tab, agentobj.sessionCookie, "https://www.linkedin.com/mynetwork/invitation-manager/?filterCriteria=null")
+await linkedIn.login(tab, agentobj.sessionCookie)
 
 // go to company linkedin page as set in argument
 await tab.open(agentobj.url)
+
+console.log("on company url")
 
 // open recomendation tab
 await tab.evaluate(open_recomedation_console_script)
