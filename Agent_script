@@ -77,7 +77,7 @@ async function main() {
 console.log("start")
 try{
 //get element from agent object
-agentobj = await getAgentObject()
+agentobj = await buster.getAgentObject()
 console.log('got element from phantom agent')
 //open tab
 const tab = await nick.newTab()	
