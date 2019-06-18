@@ -59,11 +59,13 @@ callback()	}
  
 //function to check all visible recomendation and submit
 function send_recomendation_console_script(args, callback){
+// select all checkbox
 stemp = document.querySelectorAll("[type=circle]")
 // click an all check box
 
-for (x in stemp){
-    x.click() 
+for (i = 0; i < stemp.length; i++){
+x = stemp[i]
+x.click();
 }
 
 //click on submit button
