@@ -1,5 +1,5 @@
 # Phantom_linkedin_page_recom
-Phantombuster script to recomend our linkedin company page to your contacts.
+Phantombuster script to recomend your linkedin company page to your contacts.
 
 1. Login to phantombuster for free:  [https://phantombuster.com/](https://phantombuster.com/?referral=fmc-f8VgvF4)
 2. Click on create new custom API agent with NickJS as template
