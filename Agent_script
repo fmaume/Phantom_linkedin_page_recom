@@ -112,7 +112,8 @@ console.log("on company url")
   		// Manipulate the element here
   		// for example with a click() or evaluate()
 	} catch(err) {
-  		console.log("Oh no! Even after 5s, the element was still not visible:", err)
+  		console.log("invite tab did not open after 5 seq", err)
+		nick.exit()
 	}
 
 	//select invite connection in dropdown option
@@ -124,7 +125,8 @@ console.log("on company url")
   		// Manipulate the element here
   		// for example with a click() or evaluate()
 	} catch(err) {
-  		console.log("Oh no! Even after 5s, the element was still not visible:", err)
+  		console.log("invite tab did not open after 5 seq", err)
+		nick.exit()
 	}	
 
 	console.log("recomendation tab open")
