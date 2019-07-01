@@ -109,8 +109,9 @@ console.log("recomendation made")
 await nick.exit()
 
 } catch (err) {
-	nick.exit()
 	console.log(err)
+	nick.exit()
+	
 }
 
 
