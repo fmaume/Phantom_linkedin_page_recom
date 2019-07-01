@@ -77,6 +77,7 @@ callback()	}
  
 
 async function main() {
+const pageTimeout = 5000
 console.log("start")
 try{
 //get element from agent object
@@ -92,15 +93,41 @@ await linkedIn.login(tab, agentobj.sessionCookie)
 // go to company linkedin page as set in argument
 await tab.open(agentobj.url)
 
+//wait until admin panel visible
+try {
+  await tab.waitUntilVisible("#admin-tools-tab", pageTimeout)
+
+} catch(err) {
+  console.log("admin tool bar didn't load after 5 seq", err)
+  nick.exit()
+}
+
 console.log("on company url")
 
 // open recomendation tab
-await tab.evaluate(open_recomedation_console_script)
-await tab.wait(1000)
-await tab.evaluate(open_recomedation_console_script2)
-await tab.wait(1000)
+	await tab.evaluate(open_recomedation_console_script)
+	//wait until dropdown menu apper
+	try {
+  		await tab.waitUntilVisible('[aria-label="Invite connections"]', pageTimeout)
+  		// Manipulate the element here
+  		// for example with a click() or evaluate()
+	} catch(err) {
+  		console.log("Oh no! Even after 5s, the element was still not visible:", err)
+	}
 
-console.log("tab open")
+	//select invite connection in dropdown option
+	await tab.evaluate(open_recomedation_console_script2)
+	
+	//check if the tab opened properly
+	try {
+  		await tab.waitUntilVisible("[type=circle]", pageTimeout)
+  		// Manipulate the element here
+  		// for example with a click() or evaluate()
+	} catch(err) {
+  		console.log("Oh no! Even after 5s, the element was still not visible:", err)
+	}	
+
+	console.log("recomendation tab open")
 
 // make recomedation
 await tab.evaluate(send_recomendation_console_script)
